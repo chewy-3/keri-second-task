@@ -1,0 +1,222 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-backdrop part="backdrop"></ion-backdrop>
+
+<ion-modal part="backdrop" id="example-modal" #modal1 [isOpen]="true">
+  <ng-template>
+    <div class="wrapper">
+      <h2>Your Keri Rider</h2>
+
+      <!-- <ion-list lines="none">
+        <ion-item button="true" detail="false" (click)="modal1.dismiss()">
+          <ion-icon name="person-circle"></ion-icon>
+          <ion-label>Item 1</ion-label>
+        </ion-item> -->
+
+      <img src="../../assets/shapes.svg" alt="shapes">
+      <h4>Gims Rider Test 4</h4>
+      <p class="ion-no-margin">5<img src="../../assets/rating-filled.png" alt="star"> </p>
+      <p>9555555555</p>
+      <!-- </ion-list> -->
+    </div>
+  </ng-template>
+</ion-modal>
+
+<ion-content [fullscreen]="true">
+  <div class="img-wrapper">
+    <img class="map-background" src="../../assets/map.png" alt="map">
+    <img class="rider-icon" src="../../assets/riderloc.png" alt="rider icon">
+  </div>
+
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="close-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+  <!-- First Modal -->
+
+
+  <ion-modal id="first-modal" [showBackdrop]="false" [canDismiss]="false" [isOpen]="true" [initialBreakpoint]="0.25"
+    [breakpoints]="[0.25]" [backdropBreakpoint]="1" handle="false">
+    <ng-template>
+      <ion-content>
+        <ion-header>
+          <ion-toolbar class="ion-no-padding">
+            <ion-buttons class="chevron-arrow"> <!-- Arrow button to open 2nd modal -->
+              <ion-button id="open-modal" aria-label="Favorite"><ion-icon name="chevron-up-outline"
+                  aria-hidden="true"></ion-icon></ion-button>
+            </ion-buttons>
+
+            <!-- 2nd Modal nested inside ion-header -->
+
+            <ion-modal id="second-modal" [keepContentsMounted]="true" trigger="open-modal" #modal>
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar class="ion-no-padding">
+                    <ion-buttons class="chevron-arrow">
+                      <ion-button (click)="modal.dismiss()"><ion-icon
+                          name="chevron-down-outline"></ion-icon></ion-button>
+
+                      <ion-button class="close-button" slot="end"><ion-icon size="large"
+                          name="close-circle"></ion-icon></ion-button>
+
+                    </ion-buttons>
+
+
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <ion-grid class="ion-padding-horizontal">
+                    <ion-row>
+                      <ion-col class="ion-text-left ion-align-items-start">
+                        <h5 class="ion-no-margin" style="color: #a11b1f; font-weight: 600;">Rider is on the way to your
+                          location</h5>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col class="ion-padding-vertical ion-no-padding">
+                        <ion-item class="custom-padding" lines="none">
+                          <ion-avatar slot="start">
+                            <ion-img src="https://i.pravatar.cc/300?u=d"></ion-img>
+                          </ion-avatar>
+                          <ion-label>
+
+                            <h2>Gims Rider Test 4</h2>
+                            <img src="../../assets/rating-filled.png" alt="star">
+                            <img src="../../assets/rating-filled.png" alt="star">
+                            <img src="../../assets/rating-filled.png" alt="star">
+                            <img src="../../assets/rating-filled.png" alt="star">
+                            <img src="../../assets/rating-filled.png" alt="star">
+
+                          </ion-label>
+                          <ion-button class="item-button-2ndmodal" color="dark" slot="end"> <ion-icon
+                              name="call-outline"></ion-icon>
+                          </ion-button>
+                          <ion-button class="item-button-2ndmodal" color="dark" slot="end"> <ion-icon
+                              name="chatbubble-outline"></ion-icon>
+                          </ion-button>
+                        </ion-item>
+
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col class="ion-padding-horizontal">
+                        <ion-icon class="location-icon" name="location"></ion-icon>
+                        <ion-icon class="store-icon" name="storefront-outline"></ion-icon>
+                        <div class="card-container">
+
+                          <ion-item class="user-loc" lines="none">
+                            <ion-label class="">
+                              <h6 class="ion-no-margin" style="color: #a11b1f; font-weight: 600;">You</h6>
+                              <p>
+                                Vince LEX QA <br>
+                                Mayapa, Calamba, Laguna
+                              </p>
+                            </ion-label>
+
+                          </ion-item>
+                          <ion-item class="sender-loc" lines="none">
+                            <ion-label>
+                              <h6 class="ion-no-margin" style="color: #a11b1f; font-weight: 600;">test (12312312312)
+                              </h6>
+                              <p>MCDC Chapel, Calamba, Laguna, Philippines</p>
+                              <p class="custom-p" style="margin-left: 0px;">
+                                Document</p>
+                              <p class="custom-p">
+                                1kg</p>
+                              <p class="custom-p">
+                                Sender</p>
+                              <ion-buttons style="display: inline-block;">
+                                <ion-button (click)="toggleDescription()"><ion-icon
+                                    name="chevron-down-outline"></ion-icon></ion-button>
+                              </ion-buttons>
+                              <p *ngIf="showDescription">
+                                test.
+                              </p>
+
+                            </ion-label>
+                          </ion-item>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-margin ion-padding-top">
+                      <ion-col>
+                        <h5 class="ion-no-margin" style="font-weight: 600;">Payment Details</h5>
+                        <div class="custom-h6">
+                          <h6 class="ion-margin-top" style="color: #a11b1f; font-weight: 600;">Total Fee</h6>
+                          <h6 class="ion-margin-top" style="color: #a11b1f; font-weight: 600;">PHP 70</h6>
+                        </div>
+
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+
+            <!-- Texts on the 1st Modal -->
+
+            <ion-grid class="ion-no-padding">
+              <ion-row>
+                <ion-col class="ion-text-center ion-align-items-start">
+                  <h3 class="ion-no-margin" style="color: #a11b1f; font-weight: 600;">ETA 11 Minute/s</h3>
+                  <h6 class="ion-no-margin" style="color: var(--ion-color-button-shade);">Rider is on the way to your
+                    location</h6>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-toolbar>
+        </ion-header>
+        <ion-row>
+          <ion-col class="col-tabs ion-no-padding">
+            <ion-segment value="You">
+              <ion-segment-button value="You">
+                <ion-label>You</ion-label>
+              </ion-segment-button>
+              <ion-segment-button>
+                <ion-label>MCDC Chapel</ion-label>
+              </ion-segment-button>
+              <ion-segment-button>
+                <ion-label></ion-label>
+              </ion-segment-button>
+            </ion-segment>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item class="custom-padding" lines="none">
+              <ion-avatar slot="start">
+                <ion-img src="https://i.pravatar.cc/300?u=d"></ion-img>
+              </ion-avatar>
+              <ion-label>
+
+                <h2>Gims Rider Test 4</h2>
+                <img src="../../assets/rating-filled.png" alt="star">
+                <img src="../../assets/rating-filled.png" alt="star">
+                <img src="../../assets/rating-filled.png" alt="star">
+                <img src="../../assets/rating-filled.png" alt="star">
+                <img src="../../assets/rating-filled.png" alt="star">
+
+              </ion-label>
+              <ion-button class="item-button" slot="end"> <ion-icon name="call-outline" size="large"></ion-icon>
+              </ion-button>
+              <ion-button class="item-button" slot="end"> <ion-icon name="chatbubble-outline" size="large"></ion-icon>
+              </ion-button>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+</ion-content>
